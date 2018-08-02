@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Lets Encrypt
+if [ -z "$DOMAIN" ]; then
+ echo "You need to have \$DOMAIN set"
+else
+ if [ -f /etc/letsencrypt/live/${DOMAIN}/fullchain.pem ]; then
+  certbot renew
+  kill -QUIT `cat /var/run/nginx.pid`
+  rm /var/run/nginx.pid
+  exec /usr/sbin/nginx -g "daemon off;"
+ else
+  echo "There is no cert to renew"
+ fi
+fi
