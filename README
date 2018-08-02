@@ -66,5 +66,6 @@ server {
 
 Após modificar o Nginx, iremos testar com o comando abaixo:
 
-sudo nginx -t para testar; Se tudo ocorrer bem, "nginx stop" depois disso, "nginx start".
+$ sudo nginx -t 
 
+Se tudo ocorrer bem, "$ nginx stop" depois disso, "$ nginx start".
